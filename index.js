@@ -1,6 +1,6 @@
 //
-// import { setup, nextArray } from './js_modules/gameFunctions.js';
+import { setup, nextArray } from './js_modules/gameFunctions.js';
 
-// setup();
+const grid = setup();
 
-// nextArray();
+nextArray(grid, 10, 10);

@@ -12,17 +12,14 @@ export const randomNumber = (maximum, minimum) => {
 
 export function make2DArray(columns, rows) {
     let array = new Array(columns);
-
     for (let i = 0; i < array.length; i++) {
         array[i] = new Array(rows);
     }
     return array;
 }
-
 let grid;
-let columns = 10;
-let rows = 10;
-
+const columns = 10;
+const rows = 10;
 export function setup() {
     grid = make2DArray(columns, rows);
     for (let i = 0; i < columns; i++) {
@@ -30,10 +27,10 @@ export function setup() {
             grid[i][j] = randomNumber(1, 0);
         }
     }
-    // console.log(grid);
+    return grid;
 }
 
-export function nextArray() {
+export function nextArray(grid, columns, rows) {
     let next = make2DArray(columns, rows);
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
@@ -43,7 +40,7 @@ export function nextArray() {
             // if (i === 0 || i === columns - 1 || j === 0 || j === rows - 1) {
             //     next[i][j] = state;
             // } else {
-            let neighbors = countNeighbors(grid, i, j);
+            let neighbors = countNeighbors(grid, i, j, columns, rows);
             if (state === 0 && neighbors === 3) {
                 next[i][j] = 1;
                 continue;
@@ -57,9 +54,9 @@ export function nextArray() {
         }
     }
     grid = next;
-    // console.log(grid);
+    return grid;
 }
-export function countNeighbors(grid, x, y) {
+export function countNeighbors(grid, x, y, columns, rows) {
     let sum = 0;
     for (let i = -1; i < 2; i++) {
         for (let j = -1; j < 2; j++) {
