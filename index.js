@@ -1,9 +1,6 @@
 //
-// import {
-//     isArray,
-//     randomNumber,
-//     setup,
-//     make2DArray,
-//     nextArray,
-//     countNeighbors,
-// } from './js_modules/gameFunctions.js';
+// import { setup, nextArray } from './js_modules/gameFunctions.js';
+
+// setup();
+
+// nextArray();
