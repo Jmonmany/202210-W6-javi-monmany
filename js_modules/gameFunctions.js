@@ -1,9 +1,3 @@
-//
-export const isArray = (value) => {
-    if (value === null) return false;
-    if (typeof value === typeof []) return true;
-    return false;
-};
 export const randomNumber = (maximum, minimum) => {
     const number =
         Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
